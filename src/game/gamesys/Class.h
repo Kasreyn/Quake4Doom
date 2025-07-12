@@ -44,7 +44,7 @@ public:
 	idEventArg(const struct trace_s* data) { type = D_EVENT_TRACE; value = reinterpret_cast<intptr_t>(data); };
 
 // jmarshall - this can't be called from doomscript!
-	idEventArg(intptr_t data) { type = D_EVENT_INTEGER64bit; value = data; };
+//	idEventArg(intptr_t data) { type = D_EVENT_INTEGER64bit; value = data; };
 // jmarshall end
 };
 
