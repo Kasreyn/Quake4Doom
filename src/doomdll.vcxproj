@@ -59,7 +59,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>Quake4</ProjectName>
+    <ProjectName>DoomDLL</ProjectName>
     <ProjectGuid>{49BEC5C6-B964-417A-851E-808886B57420}</ProjectGuid>
     <RootNamespace>DoomDLL</RootNamespace>
     <SccProjectName>
@@ -305,8 +305,9 @@
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|x64'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../$(Platform)/$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\$(PlatformName)\$(Configuration)\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OutDir)</IntDir>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.exe</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug with inlines and memory log|x64'">
     <Link>
@@ -387,8 +388,8 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Link>
       <AdditionalLibraryDirectories>openal\lib;sys\win32\dongle;C:\Program Files\Microsoft DirectX SDK %28June 2010%29\Lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <OutputFile>../Quake4.exe</OutputFile>
-      <AdditionalDependencies>Windowscodecs.lib;UxTheme.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>../q4dQuake4-DEBUG.exe</OutputFile>
+      <AdditionalDependencies>Windowscodecs.lib;UxTheme.lib;comctl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>libcmtd.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
     </Link>
     <ClCompile>
@@ -397,6 +398,9 @@
     <ClCompile>
       <PrecompiledHeaderFile>precompiled.h</PrecompiledHeaderFile>
       <AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)$(ProjectName)/</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)$(ProjectName)/</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)$(ProjectName)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dedicated Debug with inlines|x64'">
@@ -508,10 +512,9 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Link>
       <AdditionalLibraryDirectories>openal\lib;sys\win32\dongle;C:\Program Files\Microsoft DirectX SDK %28June 2010%29\Lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <OutputFile>../Quake4.exe</OutputFile>
+      <OutputFile>../q4dQuake4.exe</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>nafxcw.lib;libcmt.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <IgnoreSpecificDefaultLibraries>nafxcwd.lib;nafxcw.lib;libcmt.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <AdditionalDependencies>nafxcw.lib;libcmt.lib;comctl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
@@ -519,6 +522,11 @@
     <ClCompile>
       <PrecompiledHeaderFile>precompiled.h</PrecompiledHeaderFile>
       <AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)$(ProjectName)/</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)$(ProjectName)/</ObjectFileName>
+      <ProgramDataBaseFileName>$(IntDir)$(ProjectName)/vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <MinimalRebuild>true</MinimalRebuild>
+      <AdditionalIncludeDirectories>sound/vorbis/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -2286,7 +2294,11 @@
     </ProjectReference>
     <ProjectReference Include="idlib.vcxproj">
       <Project>{49bec5c6-b964-417a-851e-808886b57400}</Project>
+      <Private>true</Private>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

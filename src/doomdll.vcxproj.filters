@@ -67,9 +67,6 @@
     <Filter Include="Renderer\DXT">
       <UniqueIdentifier>{e6f14e65-2c82-43b6-bf0d-b05bf16571ad}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Renderer\Color">
-      <UniqueIdentifier>{794f7048-ed8a-4b35-82d7-abb86479edd5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Renderer\OpenGL">
       <UniqueIdentifier>{8f3197ee-2aa2-465f-a95c-b382d2b32ad0}</UniqueIdentifier>
     </Filter>
@@ -78,6 +75,9 @@
     </Filter>
     <Filter Include="External\glew">
       <UniqueIdentifier>{cfb669df-6063-4d72-9cdc-2bbcff2e0b57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer\Color">
+      <UniqueIdentifier>{b2d536eb-55d3-47a6-a67f-b4c7c80ea260}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -582,9 +582,6 @@
     <ClInclude Include="renderer\DXT\DXTCodec.h">
       <Filter>Renderer\DXT</Filter>
     </ClInclude>
-    <ClInclude Include="renderer\Color\ColorSpace.h">
-      <Filter>Renderer\Color</Filter>
-    </ClInclude>
     <ClInclude Include="renderer\BinaryImage.h">
       <Filter>Renderer</Filter>
     </ClInclude>
@@ -602,6 +599,9 @@
     </ClInclude>
     <ClInclude Include="renderer\RenderTexture.h">
       <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="renderer\Color\ColorSpace.h">
+      <Filter>Renderer\Color</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1265,9 +1265,6 @@
     <ClCompile Include="renderer\DXT\DXTEncoder.cpp">
       <Filter>Renderer\DXT</Filter>
     </ClCompile>
-    <ClCompile Include="renderer\Color\ColorSpace.cpp">
-      <Filter>Renderer\Color</Filter>
-    </ClCompile>
     <ClCompile Include="renderer\BinaryImage.cpp">
       <Filter>Renderer</Filter>
     </ClCompile>
@@ -1300,6 +1297,9 @@
     </ClCompile>
     <ClCompile Include="bse\BSE_Segment.cpp">
       <Filter>BSE</Filter>
+    </ClCompile>
+    <ClCompile Include="renderer\Color\ColorSpace.cpp">
+      <Filter>Renderer\Color</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

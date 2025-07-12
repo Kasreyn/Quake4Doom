@@ -147,7 +147,8 @@ void idImage::SetTexParameters() {
 			target = GL_TEXTURE_CUBE_MAP_EXT;
 			break;
 		default:
-			idLib::FatalError( "%s: bad texture type %d", GetName(), opts.textureType );
+			//printf( "%s: bad texture type %d", GetName(), opts.textureType );
+			//std::cout << "bad texture type!" << std::endl;
 			return;
 	}
 

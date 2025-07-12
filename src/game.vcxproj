@@ -208,7 +208,7 @@
     <Link>
       <AdditionalOptions>/FIXED:no %(AdditionalOptions)</AdditionalOptions>
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../gamex64.dll</OutputFile>
+      <OutputFile>../q4d-DEBUG-gamex86.dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ModuleDefinitionFile>.\game\game.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -221,8 +221,7 @@
       <StackReserveSize>16000000</StackReserveSize>
       <StackCommitSize>16000000</StackCommitSize>
       <LargeAddressAware>true</LargeAddressAware>
-      <BaseAddress>
-      </BaseAddress>
+      <BaseAddress>0x20000000</BaseAddress>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugInline|x64'">
@@ -379,7 +378,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
       <OmitFramePointers>false</OmitFramePointers>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)/idlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;_FINAL;GAME_DLL;Q4SDK;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
@@ -400,11 +399,12 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <CompileAs>Default</CompileAs>
       <AdditionalOptions>/J %(AdditionalOptions)</AdditionalOptions>
+      <MinimalRebuild>true</MinimalRebuild>
     </ClCompile>
     <Link>
       <AdditionalOptions> /fixed:no %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>../gamex64.dll</OutputFile>
+      <AdditionalDependencies>$(IndDir)idlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>../gamex86.dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ModuleDefinitionFile>.\game\game.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -421,6 +421,7 @@
       </EntryPointSymbol>
       <BaseAddress>
       </BaseAddress>
+      <AdditionalLibraryDirectories>$(IntDir)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -740,7 +741,6 @@
   <ItemGroup>
     <ProjectReference Include="idlib.vcxproj">
       <Project>{49bec5c6-b964-417a-851e-808886b57400}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
