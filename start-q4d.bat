@@ -1,5 +1,5 @@
-copy gamex86.dll "..\..\Games\Quake 4\q4base"
+copy build\Win32\Release\gamex86.dll "..\..\Games\Quake 4\q4base"
 copy Quake4Config.cfg "..\..\Games\Quake 4\q4base"
 copy autoexec-putra.cfg "..\..\Games\Quake 4\q4base"
-Quake4.exe +set fs_game_base "..\..\Games\Quake 4\q4base" +exec autoexec-putra.cfg
+build\Win32\Release\q4dQuake4.exe +set fs_game_base "..\..\Games\Quake 4\q4base" +exec autoexec-putra.cfg
 pause
