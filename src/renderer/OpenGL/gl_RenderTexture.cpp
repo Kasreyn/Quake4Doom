@@ -110,16 +110,19 @@ void idRenderTexture::InitRenderTexture(void) {
 	}
 	else
 	{
+
 		if (colorImages.Num() > 0)
 		{
 			glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_CUBE_MAP_POSITIVE_X, colorImages[0]->GetDeviceHandle(), 0);
+			//glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, colorImages[0]->GetDeviceHandle(), 0);
 		}
 
 		if (depthImage != nullptr) {
 			glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_CUBE_MAP_POSITIVE_X, depthImage->GetDeviceHandle(), 0);
+			//glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH24_STENCIL8, GL_TEXTURE_2D, depthImage->GetDeviceHandle(), 0);
 		}
-	}
 
+	}
 
 	if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE) {
 		common->FatalError("idRenderTexture::InitRenderTexture: Failed to create rendertexture!");

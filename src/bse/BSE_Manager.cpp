@@ -11,8 +11,8 @@ rvBSEManagerLocal bseLocal;
 rvBSEManager* bse = &bseLocal;
 
 idCVar bse_speeds("bse_speeds", "0", CVAR_INTEGER, "print bse frame statistics");
-idCVar bse_enabled("bse_enabled", "1", CVAR_BOOL, "set to false to disable all effects");
-idCVar bse_render("bse_render", "1", CVAR_BOOL, "disable effect rendering");
+idCVar bse_enabled("bse_enabled", "0", CVAR_BOOL, "set to false to disable all effects");
+idCVar bse_render("bse_render", "0", CVAR_BOOL, "disable effect rendering");
 idCVar bse_debug("bse_debug", "0", CVAR_INTEGER, "display debug info about effect");
 idCVar bse_showBounds("bse_showbounds", "0", CVAR_BOOL, "display debug bounding boxes effect");
 idCVar bse_physics("bse_physics", "1", CVAR_BOOL, "disable effect physics");

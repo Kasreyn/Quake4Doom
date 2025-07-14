@@ -1317,7 +1317,8 @@ void  rvParticleTemplate::Finish()
 		retaddr = 0;
 		if (v8)
 		{
-			v10 = *(idBounds**)(v7 + 8);
+			//v10 = *(idBounds**)(v7 + 8);
+			v10 = &v7->geometry->bounds;
 			v8->InitBox();
 			v9->SetupBox(*v10);
 		}

@@ -495,13 +495,17 @@ void idImage::Bind() {
 	if (opts.textureType == TT_2D) {
 		if (tmu->current2DMap != texnum) {
 			tmu->current2DMap = texnum;
-			glBindMultiTextureEXT(GL_TEXTURE0_ARB + texUnit, GL_TEXTURE_2D, texnum);
+			glActiveTexture(GL_TEXTURE0_ARB + texUnit);
+			glBindTexture(GL_TEXTURE_2D, texnum);
+			//glBindMultiTextureEXT(GL_TEXTURE0_ARB + texUnit, GL_TEXTURE_2D, texnum);
 		}
 	}
 	else if (opts.textureType == TT_CUBIC) {
 		if (tmu->currentCubeMap != texnum) {
 			tmu->currentCubeMap = texnum;
-			glBindMultiTextureEXT(GL_TEXTURE0_ARB + texUnit, GL_TEXTURE_CUBE_MAP_EXT, texnum);
+			glActiveTexture(GL_TEXTURE0_ARB + texUnit);
+			glBindTexture(GL_TEXTURE_CUBE_MAP_EXT, texnum);
+			//glBindMultiTextureEXT(GL_TEXTURE0_ARB + texUnit, GL_TEXTURE_CUBE_MAP_EXT, texnum);
 		}
 	}
 
